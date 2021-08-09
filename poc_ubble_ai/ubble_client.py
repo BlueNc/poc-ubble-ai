@@ -11,6 +11,9 @@ def create_identification(client_id, client_secret, webhook, redirect_url):
     "data": {
       "type": "identifications",
       "attributes": {
+        "identification-form": {
+          "phone-number" : "+687"
+        },
         "webhook": webhook,
         "redirect_url": redirect_url
       },
