@@ -47,5 +47,6 @@ def webhook():
   ubble_client.verify_signature(WEBHOOK_SECRET)
   identification = ubble_client.get_identification(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, identification_id=data['identification_id'])
   app.logger.info(identification)
+  return 'Ok', 200
 
 
