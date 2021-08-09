@@ -12,7 +12,7 @@ def create_identification(client_id, client_secret, webhook, redirect_url):
       "type": "identifications",
       "attributes": {
         "identification-form": {
-          "phone-number" : "+687"
+          "phone-number" : "+687730048"
         },
         "webhook": webhook,
         "redirect_url": redirect_url
