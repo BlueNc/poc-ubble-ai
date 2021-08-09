@@ -1,15 +1,9 @@
-from os import error
 import requests
 
 import hashlib
 import hmac
 from flask import request, current_app
 
-
-headers = {
-  "Accept": "application/vnd.api+json",
-  "Content-Type": "application/vnd.api+json"
-}
 
 def create_identification(client_id, client_secret, webhook, redirect_url):
   current_app.logger.info('create_identification')
@@ -21,6 +15,11 @@ def create_identification(client_id, client_secret, webhook, redirect_url):
         "redirect_url": redirect_url
       },
     }
+  }
+
+  headers = {
+    "Accept": "application/vnd.api+json",
+    "Content-Type": "application/vnd.api+json"
   }
 
   res = requests.post(
@@ -38,8 +37,9 @@ def create_identification(client_id, client_secret, webhook, redirect_url):
 
 def get_identification(client_id, client_secret, identification_id):
   current_app.logger.info(f'get identification {identification_id}')
+  headers = {"Accept": "application/vnd.api+json"}
   res = requests.get(
-      f"https://api.ubble.ai/identifications/{identification_id}",
+      f"https://api.ubble.ai/identifications/{identification_id}/",
       auth=(client_id, client_secret),
       headers=headers
   )
