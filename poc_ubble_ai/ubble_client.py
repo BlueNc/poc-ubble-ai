@@ -51,7 +51,7 @@ def verify_signature(webhook_secret):
   # Let's compare the hash
 
   # First we create the signed_payload
-  signed_payload = ubble_signature_dict['ts'] + '.' + request.data
+  signed_payload = ubble_signature_dict['ts'] + '.' + request.get_data(as_text=True)
 
   # Then we create the hash
   expected_signature = hmac.new(
