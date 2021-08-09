@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, send_file, redirect, request
-import ubble_client
+from poc_ubble_ai import ubble_client
 
 
 WEBHOOK = os.environ['WEBHOOK']
