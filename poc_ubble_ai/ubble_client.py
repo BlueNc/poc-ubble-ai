@@ -29,6 +29,7 @@ def create_identification(client_id, client_secret, webhook, redirect_url):
       headers=headers,
       json=data
   )
+  res.raise_for_status()
   identification = res.json()
 
   current_app.logger.info(f'identification created {identification["data"]["attributes"]["identification-id"]}')
@@ -42,6 +43,7 @@ def get_identification(client_id, client_secret, identification_id):
       auth=(client_id, client_secret),
       headers=headers
   )
+  res.raise_for_status()
   return res.json()
 
 

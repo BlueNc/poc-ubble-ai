@@ -1,3 +1,4 @@
+import logging
 import os
 
 from flask import Flask, send_file, redirect, request
@@ -11,6 +12,8 @@ REDIRECT_URL = os.environ['REDIRECT_URL']
 WEBHOOK_SECRET = os.environ['WEBHOOK_SECRET']
 
 app = Flask(__name__)
+
+app.logger.setLevel(logging.INFO)
 
 
 @app.route('/')
